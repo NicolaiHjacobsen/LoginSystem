@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>LoginSystem</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    
-</head>
-<body>
+<?php include 'Top.php' ?>
 
-    <div class="navbar">
-        <nav>
-            <ul>
-                <li><a href="">lol</a></li>
-            </ul>
-        </nav>
+<main>
+
+<body>
+    <div class="login-status">
+        <p>You are logged in!</p>
+        <p>You are logged out!</p>
     </div>
-    
+
+    <script src="js/menuDrop.js"></script>
 </body>
-</html>
+
+</main>
