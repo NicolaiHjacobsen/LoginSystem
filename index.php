@@ -1,4 +1,4 @@
-<?php include 'Top.php' ?>
+<?php require 'Top.php' ?>
 
 <main>
 
@@ -10,5 +10,7 @@
 
     <script src="js/menuDrop.js"></script>
 </body>
+
+
 
 </main>
