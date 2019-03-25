@@ -4,10 +4,11 @@ if(isset($_POST['signup-submit']))
 {
     require 'dbh.inc.php';
 
-    $username = $POST['uid'];
-    $email = $POST['mail'];
-    $Password = $POST['pwd'];
-    $PasswordRepeat = $POST['pwd-repeat'];
+    $username = $_POST['uid'];
+    $email = $_POST['mail'];
+    $Password = $_POST['pwd'];
+    $PasswordRepeat = $_POST['pwd-repeat'];
+    $password_hash = password_hash($Password, PASSWORD_DEFAULT);
 
     if(empty($username) || empty($email) || empty($Password) || empty($PasswordRepeat))
     {
@@ -29,14 +30,31 @@ if(isset($_POST['signup-submit']))
         header("Location: ../signup.php?error=invaliduid&mail=".$email);
         exit();
     }
-    else if ($Password == $PasswordRepeat)
+    else if ($Password != $PasswordRepeat)
     {
         header("Location: ../signup.php?error=passwordcheck&uid=".$username."&mail=".$email);
         exit();
     }
     else
     {
-        $sql = "SELECT uidUsers FROM users WHERE uidUseres=?";
+
+        //$sql = "SELECT uidUsers FROM users WHERE uidUseres=?";
+
+        $sql = " INSERT INTO `users`( `username`, `email`, `password`) 
+        VALUES ('$username','$email','$password_hash')  ";
+    
+        if( $conn->query($sql) ) {
+            // success
+            header("Location: ../signup.php?signup=success");
+            exit();
+        } else {
+            // email findes hvis skal være unik
+            header("Location: ../signup.php?error=sqlerror");
+            exit();
+        }
+
+
+     /*   $sql = "SELECT uidUsers FROM users WHERE uidUseres=?";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql))
@@ -80,12 +98,12 @@ if(isset($_POST['signup-submit']))
                 }
 
             }
-        }
+        } */
 
     }
 
-    mysqli_stmt_close($stmt);
-    mysqli_close($conn);
+    //mysqli_stmt_close($stmt);
+    //mysqli_close($conn);
 
 }
 else
