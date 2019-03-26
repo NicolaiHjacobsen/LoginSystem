@@ -32,10 +32,15 @@
                 echo '<p class="errorCheck">Your passwords do not match!';
             }
         }
-        else if($_GET['signup'] == "success")
+        if(isset($_GET['signup']))
         {
-            echo '<p class="successCheck">success!';
+            if($_GET["signup"] == "success")
+            {
+                echo '<p class="successCheck">Success!';
+            }
         }
+
+
     ?>
         <form action="includes/signup.inc.php" method="POST">
             <input type="text" name="uid" placeholder="Username">

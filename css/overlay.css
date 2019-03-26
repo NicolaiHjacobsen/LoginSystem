@@ -54,6 +54,7 @@
 
 #overlay-btn
 {
+    cursor: pointer;
     margin-top: 5%;
     margin-left: 40%;
     border: none;
