@@ -1,4 +1,10 @@
 
+
+.notActive
+{
+    display: none;
+}
+
 .overlay
 {
     display: block;

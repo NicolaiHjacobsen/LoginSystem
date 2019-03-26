@@ -4,6 +4,35 @@
 <main>
     <section class="section-default">
         <h1>Signup</h1>
+        <?php
+        if(isset($_GET['error']))
+        {
+            if($_GET['error'] == "emptyfields")
+            {
+                echo '<p class="errorCheck">Fill in all the fields!';
+            }
+            else if($_GET['error'] == "invalidmailuid")
+            {
+                echo '<p class="errorCheck">Invalid username and e-mail!';
+            }
+            else if($_GET['error'] == "invalidmail")
+            {
+                echo '<p class="errorCheck">Invalid e-mail!';
+            }
+            else if($_GET['error'] == "invaliduid")
+            {
+                echo '<p class="errorCheck">Invalid username!';
+            }
+            else if($_GET['error'] == "invaliduid")
+            {
+                echo '<p class="errorCheck">Invalid username!';
+            }
+            else if($_GET['error'] == "passwordcheck")
+            {
+                echo '<p class="errorCheck">Your passwords do not match!';
+            }
+        }
+    ?>
         <form action="includes/signup.inc.php" method="POST">
             <input type="text" name="uid" placeholder="Username">
             <input type="text" name="mail" placeholder="E-mail">

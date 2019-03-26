@@ -3,12 +3,21 @@
 <main>
 
 <body>
-    <div class="login-status">
-        <p>You are logged in!</p>
-        <p>You are logged out!</p>
-    </div>
+    <section class="login-status">
+    <?php
+             if(isset($_SESSION['userId']))
+            {
+                echo '<p>You are logged in!</p>';
+            }
+            else
+            {
+                echo '<p>You are logged out!</p>';
+            } 
+    ?>      
+    </section>
 
-    <script src="js/menuDrop.js"></script>
+
+
 </body>
 
 

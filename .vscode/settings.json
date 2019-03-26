@@ -4,6 +4,8 @@
         "invalidmailuid",
         "invaliduid",
         "loginsystem",
+        "mailuid",
+        "nouser",
         "passwordcheck",
         "servername",
         "signup",

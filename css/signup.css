@@ -20,6 +20,15 @@ h1
     margin: 15%;
     background-color: rgb(255, 255, 255);
     padding: 50px;
+    border-radius: 15px;
+}
+
+.errorCheck
+{
+    text-align: center;
+    font-size: 32px;
+    color: red;
+    margin-top: 20px;
 }
 
 input

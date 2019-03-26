@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,18 +15,45 @@
 </head>
 <body>
 
+<?php
+        $outputhtml = '';
 
-<div class="overlay">
-    <div class="LoginForm">
-        <h1 id="overlay-h1">LOGIN</h1>
-        <form action="includes/.login.inc.php" method="POST">
-            <input class="overlay-input" id="mailuid" name="mailuid" type="text" placeholder="Username / E-mail">
-            <input class="overlay-input" id="pwd" name="pwd" type="password" placeholder="Password">
-            <button type="submit" name="login-submit" id="overlay-btn">ENTER</button>  
-        </form>
-        <div id="signup"><a href="signup.php">Signup</a></div>       
-    </div>
-</div>
+        if(isset($_SESSION['userId']))
+        {
+            
+            $outputhtml = <<<HTML
+
+            <script src="js/removeClass.js"></script>
+HTML;
+        }
+        else
+        {
+            $outputhtml = <<<HTML
+            <div id="overlay" class="notActive"> 
+                <div class="LoginForm">
+                    <h1 id="overlay-h1">LOGIN</h1>
+                    <form action="includes/login.inc.php" method="POST">
+                        <input class="overlay-input" id="mailuid" name="mailuid" type="text" placeholder="Username / E-mail">
+                        <input class="overlay-input" id="pwd" name="pwd" type="password" placeholder="Password">
+                        <button type="submit" name="login-submit" id="overlay-btn">ENTER</button>  
+                    </form>
+                    <div id="signup"><a href="signup.php">Signup</a></div>     
+                    <P>hi</p>  
+                </div>
+            </div> 
+
+            <script src="js/AddClass.js"></script>
+HTML;
+        }
+?>
+
+<?php
+
+ echo $outputhtml;
+ 
+?>
+
+
 <div class="content-container">
     <div class="navbar">
         <div class="bars"><i class="fas fa-bars"></i></div>
@@ -36,8 +67,9 @@
             <button type="submit" id="logout-submit" name="logout-submit">Logout</button>
         </form> 
         </ul>
-
 </div>
+
+<script src="js/menuDrop.js"></script>
 
 </body>
 
