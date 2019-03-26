@@ -42,7 +42,7 @@ if(isset($_POST['signup-submit']))
     
         if( $conn->query($sql) ) {
             // success
-            header("Location: ../trop.php?signup=success");
+            header("Location: ../signup.php?signup=success");
             exit();
         } else {
             // email eller bruger findes, begge skal være unik
