@@ -36,7 +36,7 @@
         {
             if($_GET["signup"] == "success")
             {
-                echo '<p class="successCheck">Success!';
+                echo '<p class="successCheck">Signup complete!';
             }
         }
 
